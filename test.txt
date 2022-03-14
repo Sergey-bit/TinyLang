@@ -1,0 +1,34 @@
+name = (5 + 6 / (2 + 3) * 6 / 2) * 3 + 1;
+
+if (name >= 10)
+{
+    while ((name - 1) >= 5)
+    {
+        name += 1;
+    }
+}
+
+func lex(comma + 1 * 2,)
+{
+    func add(el,)
+    {
+        b = comma + name + el;
+    }
+    big = name * 2 + 1.0;
+    game = -big;
+}
+
+func game(comma, tank, player,)
+{
+    score = tank * player + comma;
+    while (score)
+    {
+        score -= 1;
+    }
+}
+
+if(game(12, 56232.12712, 0.67512,) <= 0)
+{
+    p = game(name, ppp, nnn,) + lex(name,) * 3 + (game(12, 21, 56,) + 5) / 2;
+}
+analyse = p + name;
