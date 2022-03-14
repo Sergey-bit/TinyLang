@@ -4,7 +4,7 @@ from Parser import Parser
 class ItemOfTable:
     INTEGER, STRING, FUNC, FLOAT = range(4)
     
-    def __init__(self, name, type_):
+    def __init__(self, name: str, type_: int):
         self.name = name
         self.type = type_
     
