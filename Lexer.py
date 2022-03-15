@@ -1,4 +1,4 @@
-# from sys import stdin
+from sys import stdin
 
 
 class Func:
@@ -28,11 +28,9 @@ class Lexer(object):
     }
 
     char = " "
-    file = open("test.txt", "r")
 
     def getchar(self):
-        self.char = self.file.read(1)
-        # self.char = stdin.read(1)
+        self.char = stdin.read(1)
 
     def getToken(self):
         if self.char == "":
