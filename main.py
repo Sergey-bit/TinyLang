@@ -25,7 +25,7 @@ def main():
     with open(r"program.asm", "w") as file:
         file.write(asm[0] + src + asm[1])
 
-    system(r'FASM\FASM.EXE program.asm')
+    system(r'FASM.EXE program.asm')
 
 
 if __name__ == '__main__':
