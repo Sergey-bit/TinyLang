@@ -1,0 +1,73 @@
+int fib(int n)
+{
+	if (n == 0) | (n == 1)
+	{
+		return 1;
+	}
+	return fib(n - 1) + fib(n - 2);
+}
+
+int max(int a, int b)
+{
+	if a >= b
+	{
+		return a;
+	}
+	return b;
+}
+
+int min(int a, int b)
+{
+	if a <= b
+	{
+		return a;
+	}
+	return b;
+}
+
+int to_float(int a, int b)
+{
+	int counter;
+	int f;
+	counter = 0;
+	f = 0;
+
+	while counter < 8
+	{
+		printf("a: %d, b: %d, f: %d, counter: %d", a, b, f, counter);
+		a *= 10;
+		f = f * 10 + a / b;
+		a %= b;
+		counter += 1;
+	}
+	printf("%d", f);
+	return f;
+}
+
+int union(int s, int k, intfunc f)
+{
+	printf("between %d and %d: %d", s, k, f(s, k));
+}
+
+int s;
+int k;
+int float_part1;
+int float_part2;
+
+scanf("%d %d", s, k);
+
+float_part1 = tf(s % k, k);
+float_part2 = to_float(s % k, k);
+
+union(fib(s), k, max);
+union(s, fib(k), min);
+
+printf("%d + %d = %d", s, k, s + k);
+printf('%dth fibonacci number is %d', s, fib(s));
+printf('%dth fibonacci number is %d', k, fib(k));
+printf("%d mod %d = %d", s, k, s % k);
+printf("s / k = %d.%d", s / k, float_part1);
+printf("s / k = %d.%d", s / k, float_part2);
+printf("s * k = %d", 5 * k);
+printf('Press any key...');
+

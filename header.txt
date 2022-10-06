@@ -1,0 +1,84 @@
+format PE Console
+entry start
+
+include 'FASM\INCLUDE\win32a.inc'
+
+
+#%&=!
+
+proc abs c number
+    mov eax, dword [number]
+    cmp eax, 0
+    jl @f
+    jmp .return
+
+    @@:
+        neg eax
+        jmp .return
+
+    .return:
+        ret
+endp
+
+proc tf c a, b
+    locals
+        f dd 0
+    endl
+    mov eax, dword [a]
+    cmp eax, 0
+    jl .error
+    je .one
+    mov eax, dword [b]
+    cmp eax, 0
+    jg .solution
+
+    .error:
+        push 1
+        call [exit]
+
+    .one:
+        mov eax, 0
+        mov dword [f], eax
+        jmp .return
+
+    .solution:
+        push edx
+        push ebx
+
+        repeat 9
+            xor edx, edx
+            mov eax, dword [a]
+            mov edx, 10
+            mul edx
+            mov ebx, eax
+            cdq
+            div dword [b]
+            push edx
+            push eax
+            mov eax, dword [f]
+            mov edx, 10
+            mul edx
+            pop ebx
+            add eax, ebx
+            mov dword [f], eax
+            pop edx
+            mov dword [a], edx
+        end repeat
+        pop ebx
+        pop edx
+    .return:
+        mov eax, dword [f]
+        ret
+endp
+
+section '.idata' import data readable
+    library kernel, 'kernel32.dll', \
+            msvcrt, 'msvcrt.dll'
+
+    import kernel, \
+            exit, 'ExitProcess'
+
+    import msvcrt, \
+            printf, 'printf', \
+            scanf, 'scanf', \
+            getch, '_getch'
